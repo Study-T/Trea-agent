@@ -108,6 +108,8 @@ See "Skill-to-Skill Communication" section below for format templates.
 ## Phase Handoff
 ### 阶段交接
 
+阶段交接必须满足阶段切换前置条件（见上方"Phase Transition Rules"），交接格式如下：
+
 When a phase completes and needs to hand off to the next phase:
 当一个阶段完成需要交接给下一个阶段时：
 

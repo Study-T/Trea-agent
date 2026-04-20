@@ -179,6 +179,8 @@ All failures must be recorded in context-log.
 
 - [ ] Phase output meets completion standards
 - [ ] 阶段产出符合完成标准
+- [ ] Data authenticity verified (Boss Review Data Authenticity Verification checklist)
+- [ ] 数据真实性已校验（Boss审核数据真实性校验检查清单）
 - [ ] Leader approved
 - [ ] 组长审核通过
 - [ ] Boss approved

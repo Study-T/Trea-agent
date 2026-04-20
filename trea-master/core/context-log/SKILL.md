@@ -77,11 +77,16 @@ Where to store different types of documents:
 ## Recording Trigger
 ## 记录触发条件
 
-**Record ONLY after user confirms "acceptable" / 只有在用户确认"可以"后才记录**
+**Record ONLY after user confirms "OK" / 只有在用户确认"可以"后才记录**
+
+**记录必须遵循阶段切换规则（见 core/PROTOCOL.md Phase Transition Rules）：**
 
 ```
-Phase completes → Boss approves → Show to user → User says "OK" → RECORD ★
+Phase completes → Leader approves → Boss approves → Show to user → User confirms "OK" → ★ Auto-record to context-log → Verify log recorded ✅ → Enter next phase
+阶段完成 → 组长审核 → Boss审核 → 展示给用户 → 用户确认"可以" → ★ 自动记录到context-log → 校验日志已记录 ✅ → 进入下一阶段
 ```
+
+**若日志未记录：禁止进入下一阶段，必须先完成日志记录。**
 
 ## Daily Log Structure
 ## 每日日志结构
