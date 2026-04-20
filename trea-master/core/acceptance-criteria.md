@@ -22,6 +22,24 @@ Each phase must verify data authenticity before delivery:
 | Missing Data Handling / 缺失数据处理 | Missing data is explicitly marked as "pending confirmation" and reported / 缺失数据明确标注"待确认"并上报 |
 | Verification / 可验证性 | All data can be verified against real sources / 所有数据可与真实来源对照验证 |
 
+## Boss Review Data Authenticity Verification
+## Boss审核数据真实性校验
+
+**Boss审核时必须执行以下校验，否则审核无效：**
+
+| Verification Item | Criteria | Action on Failure |
+|-------------------|----------|-------------------|
+| 数据来源追溯 / Data Source Traceability | 每个专员产出的每项数据必须能追溯到来源文档/代码/接口 | 打回，要求标注来源 |
+| 推断内容检测 / Inference Detection | 产出中不得包含未标注的推断/推测/预测内容 | 打回，要求删除或标注DATA_MISSING |
+| DATA_MISSING标注 / Missing Data Marking | 缺失数据必须标注DATA_MISSING并上报 | 打回，要求补标 |
+| 文档原文对照 / Source Document Cross-check | 关键数据必须与PRD/技术文档原文对照一致 | 打回，要求修正 |
+
+**Boss审核检查清单：**
+- [ ] 所有专员产出的数据是否有明确来源？
+- [ ] 是否存在未标注的推断/推测/预测内容？
+- [ ] 缺失数据是否已标注DATA_MISSING？
+- [ ] 关键数据是否与原文一致？
+
 ## Phase Completion Standards
 ## 各阶段完成标准
 

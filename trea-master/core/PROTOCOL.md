@@ -78,7 +78,34 @@ See "Skill-to-Skill Communication" section below for format templates.
 ## Skill-to-Skill Communication
 ## 技能间通信
 
-### Phase Handoff
+### Phase Transition Rules
+## 阶段切换规则
+
+**阶段切换前置条件（必须全部满足才能进入下一阶段）：**
+
+| Precondition | Description |
+|-------------|-------------|
+| 上一阶段Boss审核通过 | Boss已明确批准上一阶段产出 |
+| 上一阶段用户确认 | 用户已明确确认"可以" |
+| 上一阶段日志已记录 | context-log和阶段record文件已写入 |
+| 上一阶段日志校验 | 进入下一阶段前必须校验日志已记录，若未记录则必须先完成记录 |
+
+**阶段切换流程：**
+```
+上一阶段Boss审核通过
+        ↓
+向用户汇报，用户确认"可以"
+        ↓
+★ 自动记录上一阶段日志（立即执行，不可跳过）
+        ↓
+校验日志已记录 ✅
+        ↓
+进入下一阶段
+```
+
+**若日志未记录：禁止进入下一阶段，必须先完成日志记录。**
+
+## Phase Handoff
 ### 阶段交接
 
 When a phase completes and needs to hand off to the next phase:

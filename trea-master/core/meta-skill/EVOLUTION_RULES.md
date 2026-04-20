@@ -4,58 +4,42 @@
 ## Trigger Conditions
 ## 触发条件
 
-AI should propose optimization when:
+**自动进化仅在用户整体任务完成后触发，任务执行过程中不进行进化。**
 
-1. **Repetitive patterns detected**
-   发现重复出现的问题模式
+任务完成后，AI通过进化分析检查清单发现问题，则触发进化：
 
-2. **Missing capability discovered**
-   发现框架缺少某个能力
+| # | 问题类型 | 说明 |
+|---|---------|------|
+| 1 | 数据真实性问题 | 任务过程中出现推断/推测/预测的虚假数据 |
+| 2 | 流程执行问题 | 框架流程未被正确执行，有遗漏步骤 |
+| 3 | 日志记录问题 | 阶段完成后未自动记录日志 |
+| 4 | 代码优先问题 | RD阶段未先查代码就设计方案 |
+| 5 | Boss审核问题 | Boss审核未正确拦截不合格产出 |
+| 6 | 专员调度问题 | 专员调度不合理，有冗余或缺失 |
+| 7 | 用户纠正问题 | 用户需要多次纠正AI行为 |
+| 8 | 工具使用问题 | 未充分利用可用工具 |
 
-3. **Rule inefficiency noticed**
-   发现某个规则效率低下
+**没有发现问题 → 不进行进化**
 
-4. **User complaint pattern**
-   用户反复提出类似建议
+## Evolution Timing
+## 进化时机
 
-5. **New skill requirement**
-   多次需要某个skill但框架没有
-
-## When to Propose
-## 何时提议
-
-| Situation | Action |
-|-----------|--------|
-| Minor issue | Note and continue working |
-| 小问题 | 记录并继续工作 |
-| Recurring issue | Create proposal after 3rd occurrence |
-| 反复出现的问题 | 第3次出现后创建提案 |
-| Major gap | Create proposal immediately |
-| 重大缺失 | 立即创建提案 |
-
-## Recurring Issue Tracking
-## 反复问题追踪
-
-For recurring issues, track occurrences before creating a proposal:
-对于反复出现的问题，在创建提案前需要追踪出现次数：
-
-Record each occurrence in `EVOLUTION_LOG.md` tracking section:
-在 `EVOLUTION_LOG.md` 追踪区域记录每次出现：
-
-```markdown
-## Pending Tracking / 待处理追踪
-
-### [Issue Description / 问题描述]
-- **1st occurrence**: YYYY-MM-DD - [context]
-- **2nd occurrence**: YYYY-MM-DD - [context]
-- **3rd occurrence**: YYYY-MM-DD - [context] → **Create proposal / 创建提案**
 ```
-
-When the 3rd occurrence is reached, create a formal proposal.
-当第3次出现时，创建正式提案。
-
-After proposal is created (approved or rejected), remove from tracking section.
-提案创建后（无论批准或拒绝），从追踪区域移除。
+用户整体任务完成
+        ↓
+Step 1: 日志总结
+  - 回顾整个任务过程
+  - 记录到 context-log
+  - 记录到阶段 record 文件
+        ↓
+Step 2: 进化分析
+  - 逐项检查进化分析检查清单
+  - 识别任务过程中出现的问题
+        ↓
+Step 3: 判断
+  - 有问题 → 生成进化提案 → 展示给用户 → 用户决定
+  - 没有问题 → 不进行进化 → 任务结束
+```
 
 ## Proposal Rules
 ## 提案规则
@@ -75,24 +59,21 @@ After proposal is created (approved or rejected), remove from tracking section.
 5. **User-friendly presentation**
    用户友好的呈现方式
 
+6. **Only after task completion**
+   仅在任务完成后提议
+
 ## Approval Process
 ## 审批流程
 
 ```
-AI generates proposal
-AI生成提案
+任务完成 → 日志总结 → 进化分析 → 发现问题
         ↓
-Show to user
+AI生成进化提案
+        ↓
 展示给用户
         ↓
-User approves / rejects
-用户批准/拒绝
-        ↓
-[Approved] → AI executes → Record to evolution log
-[批准] → AI执行 → 记录到进化日志
-
-[Rejected] → AI notes reason → Wait for next trigger
-[拒绝] → AI记录原因 → 等待下次触发
+用户批准 → AI执行修改 → 记录进化日志
+用户拒绝 → 记录原因，不修改
 ```
 
 ## Execution Rules
@@ -112,3 +93,6 @@ User approves / rejects
 
 5. **Report to user**
    向用户汇报结果
+
+6. **No evolution without problem**
+   没有问题不进化

@@ -140,27 +140,81 @@ Boss (老板)
 5. **Data Authenticity / 数据真实性** - Strictly prohibit speculating, judging, inferring, or predicting any false information. All data must be real and verifiable. When data is missing, must explicitly report and wait for real data, never fabricate or guess
    严禁根据任何东西推测、判断、推断、预测等虚假信息，所有的数据必须是真实的、可验证的。当数据缺失时，必须明确上报并等待真实数据，严禁编造或猜测
 
+## Framework Execution Checklist
+## 框架执行校验清单
+
+**使用框架时，必须在每个关键节点校验以下规则是否被遵守。未通过校验则禁止继续执行。**
+
+### 启动前校验（Pre-flight Check）
+
+使用框架前必须完成：
+
+- [ ] 已读取 FRAMEWORK.md
+- [ ] 已读取 core/PROTOCOL.md
+- [ ] 已读取 core/dispatch-rules.md
+- [ ] 已读取 core/acceptance-criteria.md
+- [ ] 已读取 core/meta-skill/EVOLUTION.md
+- [ ] 已读取 core/meta-skill/EVOLUTION_RULES.md
+
+### PM阶段校验
+
+| 校验项 | 规则来源 | 不通过处理 |
+|--------|---------|-----------|
+| 所有专员产出数据有明确来源 | acceptance-criteria.md 数据真实性验证 | 打回，要求标注来源 |
+| 无未标注的推断/推测/预测内容 | acceptance-criteria.md Boss审核数据真实性校验 | 打回，要求删除或标注DATA_MISSING |
+| 缺失数据已标注DATA_MISSING | acceptance-criteria.md DATA_MISSING标注 | 打回，要求补标 |
+| 关键数据与PRD原文一致 | acceptance-criteria.md 文档原文对照 | 打回，要求修正 |
+
+### Boss审核校验
+
+| 校验项 | 规则来源 | 不通过处理 |
+|--------|---------|-----------|
+| 执行Boss审核数据真实性校验检查清单 | acceptance-criteria.md Boss审核检查清单 | 审核无效，重新审核 |
+| 数据来源追溯 | acceptance-criteria.md 数据来源追溯 | 打回 |
+| 推断内容检测 | acceptance-criteria.md 推断内容检测 | 打回 |
+
+### 阶段切换校验
+
+| 校验项 | 规则来源 | 不通过处理 |
+|--------|---------|-----------|
+| 上一阶段Boss审核通过 | PROTOCOL.md 阶段切换前置条件 | 禁止切换 |
+| 上一阶段用户确认 | PROTOCOL.md 阶段切换前置条件 | 禁止切换 |
+| 上一阶段日志已记录 | PROTOCOL.md 阶段切换前置条件 | 禁止切换，先记录日志 |
+
+### RD阶段校验
+
+| 校验项 | 规则来源 | 不通过处理 |
+|--------|---------|-----------|
+| Round 1已查代码（项目结构/接口/IDL） | dispatch-rules.md RD代码优先规则 | 打回，先查代码 |
+| 技术方案基于代码查询结果 | dispatch-rules.md RD代码优先规则 | 打回，重新设计 |
+
+### 任务完成后校验
+
+| 校验项 | 规则来源 | 不通过处理 |
+|--------|---------|-----------|
+| 所有阶段日志已记录 | PROTOCOL.md 阶段切换规则 | 补录后再继续 |
+| 执行进化分析检查清单 | EVOLUTION.md 进化分析检查清单 | 必须执行 |
+| 有问题才进化，没问题不进化 | EVOLUTION.md 核心原则 | 无问题则跳过进化 |
+
 ## Recording Flow
 ## 记录流程
 
 ```
-Phase completes → Leader reviews and approves → Boss reviews and approves → Show to user → User confirms "OK" → Record to context-log
+Phase completes → Leader reviews and approves → Boss reviews and approves → Show to user → User confirms "OK" → ★ Auto-record to context-log → Verify log recorded ✅ → Enter next phase
 ```
 
 ## Self-Evolution Flow
 ## 自我进化流程
 
 ```
-AI使用框架工作
+用户整体任务完成
         ↓
-AI发现需要优化的地方
+日志总结：回顾整个任务过程，记录到context-log
         ↓
-AI生成《框架优化建议提案》
+进化分析：逐项检查进化分析检查清单
         ↓
-展示给用户
-        ↓
-用户同意 → AI执行修改
-用户不同意 → AI重新分析
+    有问题 → 生成进化提案 → 展示给用户 → 用户决定
+    没有问题 → 不进行进化 → 任务结束
 ```
 
 ## How to Use
@@ -176,3 +230,5 @@ AI生成《框架优化建议提案》
 8. 从第三层（执行层）选择技能
 9. Read that skill's SKILL.md and invoke it
 10. 阅读该技能的 SKILL.md 并调用它
+11. **Follow the Framework Execution Checklist at every checkpoint**
+12. **在每个校验节点遵循框架执行校验清单**
