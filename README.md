@@ -1,4 +1,4 @@
-<img width="692" height="518" alt="image" src="https://github.com/user-attachments/assets/10b9efaf-38ce-48fa-8318-59e28be0856a" /># Trea-agent
+# Trea-agent
 智能
 ## 个人规则
 
