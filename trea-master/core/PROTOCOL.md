@@ -19,6 +19,9 @@ Define how skills exchange data when working together.
 3. **No Hidden State / 无隐藏状态** - All data must be documented
    所有数据必须被记录
 
+4. **Data Authenticity / 数据真实性** - Strictly prohibit speculating, judging, inferring, or predicting any false information. All exchanged data must be real and verifiable. When data is missing, must explicitly report and wait for real data, never fabricate or guess
+   严禁根据任何东西推测、判断、推断、预测等虚假信息，所有交换的数据必须是真实的、可验证的。当数据缺失时，必须明确上报并等待真实数据，严禁编造或猜测
+
 ## Communication Hierarchy
 ## 通信层级
 

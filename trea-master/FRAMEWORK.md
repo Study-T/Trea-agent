@@ -137,6 +137,8 @@ Boss (老板)
 2. **Reusability / 可复用性** - Skills can be reused across different contexts
 3. **Standardization / 标准化** - All skills follow the same interface standards
 4. **User Confirmation / 用户确认** - Actions are recorded only after user confirms
+5. **Data Authenticity / 数据真实性** - Strictly prohibit speculating, judging, inferring, or predicting any false information. All data must be real and verifiable. When data is missing, must explicitly report and wait for real data, never fabricate or guess
+   严禁根据任何东西推测、判断、推断、预测等虚假信息，所有的数据必须是真实的、可验证的。当数据缺失时，必须明确上报并等待真实数据，严禁编造或猜测
 
 ## Recording Flow
 ## 记录流程

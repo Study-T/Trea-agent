@@ -7,6 +7,21 @@
 Define what qualifies as "done" for each phase.
 定义每个阶段"完成"的标准。
 
+## Data Authenticity Verification
+## 数据真实性验证
+
+**核心规则：严禁推测、判断、推断、预测任何虚假信息，所有数据必须是真实的。**
+
+Each phase must verify data authenticity before delivery:
+每个阶段在交付前必须验证数据真实性：
+
+| Verification Item | Criteria |
+|-------------------|----------|
+| Data Source / 数据来源 | All data has clear, traceable source / 所有数据有明确可追溯的来源 |
+| No Speculation / 无推测 | No data is based on speculation, inference, or prediction / 无数据基于推测、推断或预测 |
+| Missing Data Handling / 缺失数据处理 | Missing data is explicitly marked as "pending confirmation" and reported / 缺失数据明确标注"待确认"并上报 |
+| Verification / 可验证性 | All data can be verified against real sources / 所有数据可与真实来源对照验证 |
+
 ## Phase Completion Standards
 ## 各阶段完成标准
 

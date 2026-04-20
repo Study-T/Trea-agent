@@ -154,6 +154,23 @@ PM专员A → PM组长 → Boss → RD组长 → RD专员B
 Note: No direct lines between leaders. All cross-group communication goes through Boss.
 注意：组长之间没有直接连线。所有跨组通信通过Boss中转。
 
+## Data Authenticity Rules
+## 数据真实性规则
+
+**严禁推测、判断、推断、预测任何虚假信息，所有数据必须是真实的。**
+
+| 角色 | 数据真实性要求 |
+|-----|--------------|
+| Boss | 向用户传递的信息必须基于真实数据，严禁编造或推测用户需求 |
+| 组长 | 汇总的数据必须来自专员真实输出，严禁自行补充未经验证的信息 |
+| 专员 | 所有分析、设计、实现必须基于真实数据和事实，严禁推测或编造数据 |
+
+| 场景 | 正确行为 | 错误行为 |
+|------|---------|---------|
+| 数据缺失 | 立即上报，等待真实数据 | 自行推测或编造数据 |
+| 信息不确定 | 明确标注"待确认"，上报获取 | 凭印象或推断给出结论 |
+| 需要额外信息 | 通过层级上报请求用户提供 | 假设或猜测缺失信息 |
+
 ## Rules
 ## 规则
 
@@ -168,3 +185,6 @@ Note: No direct lines between leaders. All cross-group communication goes throug
 
 4. All cross-group communication must go through hierarchy
    所有跨组通信必须通过层级中转
+
+5. All data must be real and verifiable, strictly prohibit speculating, inferring, or predicting false information
+   所有数据必须是真实的、可验证的，严禁推测、推断或预测虚假信息
