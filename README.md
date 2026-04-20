@@ -1,2 +1,7 @@
-# Trea-agent
+<img width="692" height="518" alt="image" src="https://github.com/user-attachments/assets/10b9efaf-38ce-48fa-8318-59e28be0856a" /># Trea-agent
 智能
+## 个人规则
+
+- **Trae-Master 框架前置读取规则**：使用 Trae-Master 框架时，必须先完整读取框架的核心规则文件（FRAMEWORK.md、PROTOCOL.md、dispatch-rules.md、acceptance-criteria.md），理解框架的执行流程、通信协议、调度规则和验收标准后，再开始执行任何框架流程。严禁凭记忆或推断执行框架流程，一切以框架文件中的规则为准。
+- **Trae-Master 阶段汇报规则**：使用 Trae-Master 框架时，每个阶段（PM/RD/QA）必须严格按照审批链路执行：专员完成 → 组长审核 → Boss审核 → 向用户汇报 → 用户确认"可以" → 才能进入下一阶段。严禁跳过汇报环节连续执行多个阶段，严禁在用户未确认的情况下自行推进到下一阶段。Boss审核不通过则打回重做，通过后才能向用户汇报。
+- **Trae-Master 汇报即停规则**：使用 Trae-Master 框架时，到达向用户汇报环节必须立即停止所有后续执行，仅输出汇报内容并等待用户确认。严禁在汇报的同时继续执行下一阶段的任何操作（包括但不限于：代码搜索、文件读取、专员调度、组长审核等）。只有用户明确确认"可以"后，才能开始下一阶段的执行。
