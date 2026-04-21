@@ -1,4 +1,4 @@
-# Trea-agent
+# Trea-agent-skill
 智能
 ## 个人规则
 
